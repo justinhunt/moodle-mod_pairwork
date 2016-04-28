@@ -41,7 +41,7 @@
  * The variable name for the capability definitions array is $capabilities
  *
  * @package    mod_pairwork
- * @copyright  2016 Justin Hunt poodllsupport@gmail.com_
+ * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

@@ -18,7 +18,7 @@
  * A mod_pairwork adhoc task
  *
  * @package    mod_pairwork
- * @copyright  2016 Justin Hunt poodllsupport@gmail.com_
+ * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -31,7 +31,7 @@ require_once($CFG->dirroot . '/mod/pairwork/lib.php');
  *
  * @package    mod_pairwork
  * @since      Moodle 2.7
- * @copyright  2016 Justin Hunt poodllsupport@gmail.com_
+ * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class pairwork_adhoc extends \core\task\adhoc_task {

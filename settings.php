@@ -20,7 +20,7 @@
  *
  * @package    mod
  * @subpackage pairwork
- * @copyright  2016 Justin Hunt poodllsupport@gmail.com_
+ * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -29,7 +29,13 @@ require_once($CFG->dirroot.'/mod/pairwork/lib.php');
 
 if ($ADMIN->fulltree) {
 
-
+		$settings->add(new admin_setting_configcheckbox(MOD_PAIRWORK_FRANKY . '/enablereset',
+  get_string('enablereset', MOD_PAIRWORK_LANG), 
+  get_string('enablereset_desc',MOD_PAIRWORK_LANG),'0'));
+  
+  	$settings->add(new admin_setting_configcheckbox(MOD_PAIRWORK_FRANKY . '/enablereports',
+  get_string('enablereports', MOD_PAIRWORK_LANG), 
+  get_string('enablereports_desc',MOD_PAIRWORK_LANG),'0'));
 
 	  $settings->add(new admin_setting_configtext('mod_pairwork/someadminsetting',
         get_string('someadminsetting', 'pairwork'), get_string('someadminsetting_details', MOD_PAIRWORK_LANG), 'default text', PARAM_TEXT));
