@@ -25,7 +25,7 @@
  * Moodle is performing actions across all modules.
  *
  * @package    mod_pairwork
- * @copyright  2016 Justin Hunt poodllsupport@gmail.com_
+ * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -390,9 +390,33 @@ function pairwork_add_instance(stdClass $pairwork, mod_pairwork_mod_form $mform 
 
     $pairwork->timecreated = time();
 
-    # You may have to add extra stuff in here #
+	//add new instance with dummy data for editor content
+	$pairwork->instructionsa ='';
+	$pairwork->instructionsaformat =FORMAT_HTML;
+	$pairwork->instructionsb ='';
+	$pairwork->instructionsbformat =FORMAT_HTML;
+    $pairworkid = $DB->insert_record(MOD_PAIRWORK_TABLE, $pairwork);
+    $pairwork->id = $pairworkid;  
+    
+    //call file_postupdate_standard editor to save files, 
+    // and prepare editor content for saving in database
+    $cmid        = $pairwork->coursemodule;
+    $context = context_module::instance($cmid);
+    $editoroptions = pairwork_get_editor_options($context);
+    $pairwork =  file_postupdate_standard_editor($pairwork,'instructionsa',
+    	$editoroptions,$context, 'mod_pairwork','instructionsa',$pairworkid);
+	$pairwork =  file_postupdate_standard_editor($pairwork,'instructionsb',
+		$editoroptions,$context, 'mod_pairwork','instructionsb',$pairworkid);
+		
+	//update database with proper editor content	
+	$DB->update_record(MOD_PAIRWORK_TABLE, $pairwork); 
+    return $pairworkid;
+}
 
-    return $DB->insert_record(MOD_PAIRWORK_TABLE, $pairwork);
+function pairwork_get_editor_options($context){
+    global $CFG;
+    return array('subdirs'=>1, 'maxbytes'=>$CFG->maxbytes, 'maxfiles'=>-1, 
+    	'changeformat'=>1, 'context'=>$context, 'noclean'=>1, 'trusttext'=>0);
 }
 
 /**
@@ -411,10 +435,18 @@ function pairwork_update_instance(stdClass $pairwork, mod_pairwork_mod_form $mfo
 
     $pairwork->timemodified = time();
     $pairwork->id = $pairwork->instance;
-
-    # You may have to add extra stuff in here #
-
-    return $DB->update_record(MOD_PAIRWORK_TABLE, $pairwork);
+    
+    //save files and process editor content	
+	$cmid        = $pairwork->coursemodule;
+    $context = context_module::instance($cmid);
+    $editoroptions = pairwork_get_editor_options($context);
+    $pairwork =  file_postupdate_standard_editor($pairwork,'instructionsa',$editoroptions,$context,
+		'mod_pairwork','instructionsa',$pairwork->id);
+	$pairwork =  file_postupdate_standard_editor($pairwork,'instructionsb',$editoroptions,$context,
+		'mod_pairwork','instructionsb',$pairwork->id);
+	
+	//update the database 
+	return $DB->update_record(MOD_PAIRWORK_TABLE, $pairwork); 
 }
 
 /**
@@ -632,16 +664,30 @@ function pairwork_get_file_info($browser, $areas, $course, $cm, $context, $filea
  * @param bool $forcedownload whether or not force download
  * @param array $options additional options affecting the file serving
  */
-function pairwork_pluginfile($course, $cm, $context, $filearea, array $args, $forcedownload, array $options=array()) {
-    global $DB, $CFG;
+function pairwork_pluginfile($course, $cm, $context, $filearea, 
+                              array $args, $forcedownload, array $options=array()) {
+   global $DB, $CFG;
 
-    if ($context->contextlevel != CONTEXT_MODULE) {
+   if ($context->contextlevel != CONTEXT_MODULE) {
         send_file_not_found();
     }
 
     require_login($course, true, $cm);
 
-    send_file_not_found();
+  if ($context->contextlevel != CONTEXT_MODULE) {
+        return false;
+   }
+    require_course_login($course, true, $cm);
+
+	$fs = get_file_storage();
+	$relativepath = implode('/', $args);
+	$fullpath = "/$context->id/mod_pairwork/$filearea/$relativepath";
+	if (!$file = $fs->get_file_by_hash(sha1($fullpath)) or $file->is_directory()) {
+		return false;
+	}
+
+	// Finally send the file.
+	send_stored_file($file, 0, 0, $forcedownload, $options);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -658,19 +704,16 @@ function pairwork_pluginfile($course, $cm, $context, $filearea, array $args, $fo
  * @param stdClass $module
  * @param cm_info $cm
  */
-function pairwork_extend_navigation(navigation_node $pairworknode, stdclass $course, stdclass $module, cm_info $cm) {
- global $PAGE;
+function pairwork_extend_navigation(navigation_node $navref, stdclass $course, stdclass $module, cm_info $cm) {
 
-    $config = get_config(MOD_PAIRWORK_FRANKY);
-   // if ($config->enablereset) {
-        $reset_url = new moodle_url('/mod/pairwork/reset.php', array('id'=>$PAGE->cm->id));
-        $reset_node = $pairworknode->add(get_string('reset'), $reset_url);
-  //  }
+	$view_url = new moodle_url('/mod/pairwork/view.php',array('id'=>$cm->id));
+	$view_node = $navref->add(get_string('view'), $view_url);
+	$config = get_config(MOD_PAIRWORK_FRANKY);
+	if($config->enablereports){
+		$report_url = new moodle_url('/mod/pairwork/reports.php',array('id'=>$cm->id));
+		$report_node = $navref->add(get_string('reports'),$report_url);
+	}
 
- /*   if ($config->enablereports) {
-        $reports_url = new moodle_url('/mod/pairwork/reports.php', array('id'=>$PAGE->cm->id));
-        $reports_node = $pairworknode->add(get_string('reports'), $reports_url);
-    } */
 }
 
 /**
@@ -684,11 +727,12 @@ function pairwork_extend_navigation(navigation_node $pairworknode, stdclass $cou
  */
 function pairwork_extend_settings_navigation(settings_navigation $settingsnav, navigation_node $pairworknode=null) {
 	global $PAGE;
+	$config = get_config(MOD_PAIRWORK_FRANKY);
+	if($config->enablereset){
+		$reset_url = new moodle_url('/mod/pairwork/reset.php',array('id'=>$PAGE->cm->id));
+		$reset_node = $pairworknode->add(get_string('reset'), $reset_url);
+	}
 	
-	$reset_url = new moodle_url('/mod/pairwork/reset.php',array('id'=>$PAGE->cm->id));
-	$pairworknode->add(get_string('reset'), $reset_url); 
-	//
-	$reports_url = new moodle_url('/mod/pairwork/reports.php', array('id' => $PAGE->cm->id));
-    $pairworknode = $pairworknode->add(get_string('reports', 'pairwork'), $reports_url, navigation_node::TYPE_SETTING);
-//
+	$rename_url = new moodle_url('/mod/pairwork/namechanger.php',array('courseid'=>$PAGE->cm->course));
+	$rename_node = $pairworknode->add(get_string('rename'), $rename_url);
 }

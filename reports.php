@@ -20,7 +20,7 @@
  *
  *
  * @package    mod_pairwork
- * @copyright  2016 Justin Hunt poodllsupport@gmail.com_
+ * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -56,14 +56,26 @@ if ($id) {
     error('You must specify a course_module ID or an instance ID');
 }
 
+	
 if($showreport=='menu'){
-	$PAGE->set_url(MOD_PAIRWORK_URL . '/reports.php', array('id' => $cm->id));
-}else{
 	$PAGE->set_url(MOD_PAIRWORK_URL . '/reports.php', 
-		array('id' => $cm->id,'format'=>$format,'report'=>$showreport,'userid'=>$userid,'attemptid'=>$attemptid));
+	array('id' => $cm->id)
+	);
+}else{
+	$current_url = new moodle_url(MOD_PAIRWORK_URL . '/reports.php', 
+	array('id' => $cm->id,'format'=>$format,'report'=>$showreport,'userid'=>$userid,'attemptid'=>$attemptid));
+	
+	$PAGE->set_url($current_url);
+	$PAGE->navbar->add(get_string('reports'), new moodle_url(MOD_PAIRWORK_URL . '/reports.php', array('id' => $cm->id)));
+	$currentreportnode = $PAGE->navbar->add('current report', $current_url);
+	$currentreportnode->make_active();
 }
+
 require_login($course, true, $cm);
+
 $modulecontext = context_module::instance($cm->id);
+
+require_capability('mod/pairwork:viewreportstab',$modulecontext);
 
 //Diverge logging logic at Moodle 2.7
 if($CFG->version<2014051200){

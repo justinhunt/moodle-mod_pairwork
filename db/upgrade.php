@@ -26,7 +26,7 @@
  * here will all be database-neutral, using the functions defined in DLL libraries.
  *
  * @package    mod_pairwork
- * @copyright  2016 Justin Hunt poodllsupport@gmail.com_
+ * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -148,6 +148,31 @@ function xmldb_pairwork_upgrade($oldversion) {
         // insert here code to perform some actions (same as in install.php)
 
         upgrade_mod_savepoint(true, 2007040200, 'pairwork');
+    }
+
+
+    // Add fields for week 5
+    if ($oldversion < 2015110700) {
+
+        // Define field introformat to be added to pairwork
+        $table = new xmldb_table('pairwork');
+        $fields=array();
+        $fields[] = new xmldb_field('instructionsa', XMLDB_TYPE_TEXT, 'medium', null, null, null, null,null);
+        $fields[] = new xmldb_field('instructionsb', XMLDB_TYPE_TEXT, 'medium', null, null, null, null,null);
+        $fields[] = new xmldb_field('instructionsaformat', XMLDB_TYPE_INTEGER, '4', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0',
+            null);
+        $fields[] = new xmldb_field('instructionsbformat', XMLDB_TYPE_INTEGER, '4', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0',
+            null);
+        $fields[] = new xmldb_field('showhide', XMLDB_TYPE_INTEGER, '2', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0',
+            null);
+
+        // Add field timemodified
+        foreach ($fields as $field) {
+            if (!$dbman->field_exists($table, $field)) {
+                $dbman->add_field($table, $field);
+            }
+        }
+        upgrade_mod_savepoint(true, 2015110700, 'pairwork');
     }
 
     // And that's all. Please, examine and understand the 3 example blocks above. Also

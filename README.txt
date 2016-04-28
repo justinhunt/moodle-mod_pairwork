@@ -1,22 +1,22 @@
 Template Activity Module for Moodle
 ==========================
 This is a more modern, and at least for me, more useful template than the others available.
-It contains admin and instance settings stubs, a renderer.php and a module.js . It also contains activity completion on grade, grade book logic, backup and restore and adhoc/scheduled tasks
+It contains admin and instance settings stubs, a renderer.php and a module.js . It also contains activity completion on grade, grade book logic, backup and restore and adgoc/scheduled tasks
 
 To Use
 ===========
 i) Replace all instances of PAIRWORK with your uppercase module name eg WIDGET
-There are about 3 of these.
+There are 3 of these.
 
 ii) Replace all instances of MOD_PAIRWORK_ with your module frankenstyle component name eg MOD_WIDGET_
 (NB note the trailing underscore. Just to be safe, include that.)
-There are over 140 of these.
+There are 141 of these.
 
 iii) Replace all instances of pairwork with your lowercase module name eg widget
-There are over 330 of these.
+There are 331 of these.
 
-iv) Replace all instances of 2016 Justin Hunt poodllsupport@gmail.com_ with something like "2015 Justin Hunt".
-There are over 30 of these.
+iv) Replace all instances of 2015 Flash Gordon http://www.flashgordon.com with something like "2015 Justin Hunt".
+There are 31 of these.
 
 It is recommended to use a search and replace tool from a text editor or a command line script to do this.
 Trying to do this manually is sure to lead to mistakes.
@@ -26,7 +26,7 @@ lang/en
 backup/moodle2
 classes/task
 
-Copy the folder to your [Moodle program dir]/mod directory
+Copy the folder to your [Moodle Site Dir]/mod directory
 
 Install as usual.
 
