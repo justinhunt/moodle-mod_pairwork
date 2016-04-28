@@ -48,6 +48,7 @@ $tabs = $row = $inactive = $activated = array();
 
 $row[] = new tabobject('view', "$CFG->wwwroot/mod/pairwork/view.php?id=$cm->id", get_string('view', MOD_PAIRWORK_LANG), get_string('preview', MOD_PAIRWORK_LANG, format_string($moduleinstance->name)));
 $row[] = new tabobject('reports', "$CFG->wwwroot/mod/pairwork/reports.php?id=$cm->id", get_string('reports', MOD_PAIRWORK_LANG), get_string('viewreports', MOD_PAIRWORK_LANG));
+$row[] = new tabobject('userreport', "$CFG->wwwroot/mod/pairwork/userreport.php?id=$cm->id", get_string('userreport', MOD_PAIRWORK_LANG), get_string('userreport', MOD_PAIRWORK_LANG));
 
 $tabs[] = $row;
 

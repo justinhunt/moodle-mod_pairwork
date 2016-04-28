@@ -18,7 +18,7 @@
  *  Report Classes.
  *
  * @package    mod_pairwork
- * @copyright  2016 Justin Hunt poodllsupport@gmail.com_
+ * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -34,7 +34,7 @@ defined('MOODLE_INTERNAL') || die();
  * The allusers report is the simplest example 
  *
  * @package    mod_pairwork
- * @copyright  2016 Justin Hunt poodllsupport@gmail.com_
+ * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class mod_pairwork_base_report {

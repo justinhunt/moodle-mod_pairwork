@@ -92,6 +92,3 @@ $string['partnera'] ='Partner A';
 $string['partnerb'] ='Partner B';
 $string['student_x'] ='Student {$a}';
 $string['userreport'] ='User Report';
-$string['showhide'] ='Enable "Show Partner Pic Resource" button';
-$string['instructionsa'] ='Instructions(A)';
-$string['instructionsb'] ='Instructions(B)';
