@@ -1,0 +1,26 @@
+[07-Apr-2016 15:46:50 Europe/London] PHP Notice:  Undefined variable: cm in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 674
+[07-Apr-2016 15:46:50 Europe/London] PHP Notice:  Trying to get property of non-object in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 674
+[11-Apr-2016 22:19:25 Europe/London] PHP Notice:  Undefined variable: cm in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 674
+[11-Apr-2016 22:19:25 Europe/London] PHP Notice:  Trying to get property of non-object in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 674
+[11-Apr-2016 22:32:58 Europe/London] PHP Notice:  Use of undefined constant MOD_PAIRWORK_FRANKY - assumed 'MOD_PAIRWORK_FRANKY' in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/view.php on line 82
+[11-Apr-2016 22:32:58 Europe/London] PHP Notice:  Undefined property: stdClass::$someadminsetting in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/view.php on line 83
+[11-Apr-2016 22:32:58 Europe/London] PHP Notice:  Use of undefined constant MOD_PAIRWORK_LANG - assumed 'MOD_PAIRWORK_LANG' in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/view.php on line 120
+[11-Apr-2016 22:32:58 Europe/London] PHP Notice:  Use of undefined constant MOD_PAIRWORK_LANG - assumed 'MOD_PAIRWORK_LANG' in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/tabs.php on line 49
+[11-Apr-2016 22:32:58 Europe/London] PHP Notice:  Use of undefined constant MOD_PAIRWORK_LANG - assumed 'MOD_PAIRWORK_LANG' in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/tabs.php on line 49
+[11-Apr-2016 22:32:58 Europe/London] PHP Notice:  Use of undefined constant MOD_PAIRWORK_LANG - assumed 'MOD_PAIRWORK_LANG' in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/tabs.php on line 50
+[11-Apr-2016 22:32:58 Europe/London] PHP Notice:  Use of undefined constant MOD_PAIRWORK_LANG - assumed 'MOD_PAIRWORK_LANG' in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/tabs.php on line 50
+[11-Apr-2016 22:34:53 Europe/London] PHP Notice:  Undefined property: stdClass::$enablereset in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 665
+[11-Apr-2016 22:34:53 Europe/London] PHP Notice:  Undefined property: stdClass::$enablereports in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 670
+[11-Apr-2016 22:35:16 Europe/London] PHP Notice:  Undefined property: stdClass::$enablereset in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 665
+[11-Apr-2016 22:35:16 Europe/London] PHP Notice:  Undefined property: stdClass::$enablereports in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 670
+[11-Apr-2016 22:35:21 Europe/London] PHP Notice:  Undefined property: stdClass::$enablereset in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 665
+[11-Apr-2016 22:35:21 Europe/London] PHP Notice:  Undefined property: stdClass::$enablereports in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 670
+[11-Apr-2016 22:35:49 Europe/London] PHP Notice:  Undefined property: stdClass::$enablereset in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 665
+[11-Apr-2016 22:35:49 Europe/London] PHP Notice:  Undefined property: stdClass::$enablereports in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 670
+[11-Apr-2016 22:39:19 Europe/London] PHP Notice:  Undefined variable: link in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 692
+[11-Apr-2016 22:39:53 Europe/London] PHP Notice:  Undefined variable: link in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 692
+[11-Apr-2016 22:40:06 Europe/London] PHP Notice:  Undefined variable: link in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 692
+[11-Apr-2016 22:40:11 Europe/London] PHP Notice:  Undefined variable: link in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 692
+[11-Apr-2016 22:40:15 Europe/London] PHP Notice:  Undefined variable: link in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 692
+[11-Apr-2016 22:40:35 Europe/London] PHP Notice:  Undefined variable: link in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 692
+[12-Apr-2016 01:28:37 Europe/London] PHP Parse error:  syntax error, unexpected '}' in /home/chipmunkyou/public_html/moodle/poodll3/mod/pairwork/lib.php on line 674
