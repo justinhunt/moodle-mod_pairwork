@@ -23,7 +23,7 @@
  * if you like, and it can span multiple lines.
  *
  * @package    mod_pairwork
- * @copyright  2016 Justin Hunt poodllsupport@gmail.com_
+ * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -75,3 +75,20 @@ $string['gradeaverage'] ='average score of all attempts';
 $string['defaultsettings'] ='Default Settings';
 $string['exceededattempts'] ='You have completed the maximum {$a} attempts.';
 $string['pairworktask'] ='pairwork Task';
+$string['enablereports'] ='Enable Reports';
+$string['enablereset'] ='Enable Reset';
+$string['enablereports_desc'] ='';
+$string['enablereset_desc'] ='';
+$string['view_instructions']='Talk with your partner and choose different roles each.<br />One of you will be Partner A, and the other Partner B.';
+$string['defaultinstructions'] = "Watch the very short video below. ";
+$string['defaultinstructions']  .= "Think about how to explain it to your partner in English. ";
+$string['defaultinstructions']  .=  "When you and your partner are ready, take turns describing your video. ";
+$string['defaultinstructions']  .=  "When your partner has described their video, you should try to repeat what you just heard. ";
+$string['defaultinstructions'] .=  "When you have both finished talking, you can see your partner's video.";
+$string['see'] ='SEE ';
+$string['hide'] ='HIDE ';
+$string['partnerpic'] ='Partner Pic';
+$string['partnera'] ='Partner A';
+$string['partnerb'] ='Partner B';
+$string['student_x'] ='Student {$a}';
+$string['userreport'] ='User Report';

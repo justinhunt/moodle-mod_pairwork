@@ -20,7 +20,7 @@
  *
  * @package     mod_pairwork
  * @category    backup
- * @copyright   2016 Justin Hunt poodllsupport@gmail.com_
+ * @copyright   2015 Flash Gordon http://www.flashgordon.com
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

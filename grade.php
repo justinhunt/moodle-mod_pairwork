@@ -19,7 +19,7 @@
  *
  * @package   mod_pairwork
  * @category  grade
- * @copyright 2016 Justin Hunt poodllsupport@gmail.com_
+ * @copyright 2015 Flash Gordon http://www.flashgordon.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');

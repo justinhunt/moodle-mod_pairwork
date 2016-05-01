@@ -20,7 +20,7 @@
  * lib.php/modulename_install() post installation hook and partially defaults.php
  *
  * @package    mod_pairwork
- * @copyright  2016 Justin Hunt poodllsupport@gmail.com_ <your@email.adress>
+ * @copyright  2015 Flash Gordon http://www.flashgordon.com <your@email.adress>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

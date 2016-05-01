@@ -16,10 +16,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Prints a particular instance of pairwork
+ * Prints the all users page of pairwork
  *
- * You can have a rather longer description of the file as well,
- * if you like, and it can span multiple lines.
  *
  * @package    mod_pairwork
  * @copyright  2015 Flash Gordon http://www.flashgordon.com
@@ -33,6 +31,10 @@ require_once(dirname(__FILE__).'/lib.php');
 
 $id = optional_param('id', 0, PARAM_INT); // course_module ID, or
 $n  = optional_param('n', 0, PARAM_INT);  // pairwork instance ID - it should be named as the first character of the module
+$sortorder = optional_param('sortorder', 'userid', PARAM_TEXT); // the sort order of the list
+$pagecount = optional_param('pagecount', 50, PARAM_INT); // the number of records to show
+
+
 
 if ($id) {
     $cm         = get_coursemodule_from_id('pairwork', $id, 0, false, MUST_EXIST);
@@ -46,13 +48,13 @@ if ($id) {
     error('You must specify a course_module ID or an instance ID');
 }
 
-$PAGE->set_url('/mod/pairwork/view.php', array('id' => $cm->id));
+$PAGE->set_url('/mod/pairwork/userreport.php', array('id' => $cm->id));
 require_login($course, true, $cm);
 $modulecontext = context_module::instance($cm->id);
 
 //Diverge logging logic at Moodle 2.7
 if($CFG->version<2014051200){
-	add_to_log($course->id, 'pairwork', 'view', "view.php?id={$cm->id}", $moduleinstance->name, $cm->id);
+	add_to_log($course->id, 'pairwork', 'view', "userreport.php?id={$cm->id}", $moduleinstance->name, $cm->id);
 }else{
 	// Trigger module viewed event.
 	$event = \mod_pairwork\event\course_module_viewed::create(array(
@@ -63,14 +65,7 @@ if($CFG->version<2014051200){
 	$event->add_record_snapshot('course', $course);
 	$event->add_record_snapshot('pairwork', $moduleinstance);
 	$event->trigger();
-} 
-
-//if we got this far, we can consider the activity "viewed"
-$completion = new completion_info($course);
-$completion->set_module_viewed($cm);
-
-//are we a teacher or a student?
-$mode= "view";
+}
 
 /// Set up the page header
 $PAGE->set_title(format_string($moduleinstance->name));
@@ -85,56 +80,25 @@ $PAGE->set_pagelayout('course');
 	//Get an instance setting
 	$someinstancesetting = $moduleinstance->someinstancesetting;
 
+$userdata = new stdClass();
 
-//get our javascript all ready to go
-//We can omit $jsmodule, but its nice to have it here, 
-//if for example we need to include some funky YUI stuff
-$jsmodule = array(
-	'name'     => 'mod_pairwork',
-	'fullpath' => '/mod/pairwork/module.js',
-	'requires' => array()
-);
-//here we set up any info we need to pass into javascript
-$opts =Array();
-$opts['someinstancesetting'] = $someinstancesetting;
-
-
-//this inits the M.mod_pairwork thingy, after the page has loaded.
-$PAGE->requires->js_init_call('M.mod_pairwork.helper.init', array($opts),false,$jsmodule);
-
-//this loads any external JS libraries we need to call
-//$PAGE->requires->js("/mod/pairwork/js/somejs.js");
-//$PAGE->requires->js(new moodle_url('http://www.somewhere.com/some.js'),true);
-
-//This puts all our display logic into the renderer.php file in this plugin
-//theme developers can override classes there, so it makes it customizable for others
-//to do it this way.
+//This puts all our display logic into the renderer.php
 $renderer = $PAGE->get_renderer('mod_pairwork');
 
-//From here we actually display the page.
-//this is core renderer stuff
 
-
-//if we are teacher we see tabs. If student we just see the quiz
-if(has_capability('mod/pairwork:preview',$modulecontext)){
-	echo $renderer->header($moduleinstance, $cm, $mode, null, get_string('view', MOD_PAIRWORK_LANG));
-}else{
+//if we are not a teacher we see no tabs and no report
+if(!has_capability('mod/pairwork:preview',$modulecontext)){
 	echo $renderer->notabsheader();
+	echo get_string('nopermission');
+	echo $renderer->footer();
+
 }
 
-echo $renderer->show_intro($moduleinstance,$cm);
-
-//if we have too many attempts, lets report that.
-if($moduleinstance->maxattempts > 0){
-	$attempts =  $DB->get_records(MOD_PAIRWORK_USERTABLE,array('userid'=>$USER->id, MOD_PAIRWORK_MODNAME.'id'=>$moduleinstance->id));
-	if($attempts && count($attempts)<$moduleinstance->maxattempts){
-		echo get_string("exceededattempts",MOD_PAIRWORK_LANG,$moduleinstance->maxattempts);
-	}
-}
-
-//This is specfic to our renderer
-echo $renderer->fetch_view_instructions();
-echo $renderer->fetch_view_buttons();
+$mode = 'userreport';
+echo $renderer->header($moduleinstance, $cm, $mode, null, get_string('userreport', MOD_PAIRWORK_LANG));
+$displayopts = new stdClass();
+echo $renderer->fetch_userreport_header($moduleinstance,$displayopts);
+echo $renderer->fetch_user_list($moduleinstance,$userdata, $displayopts);
 
 // Finish the page
 echo $renderer->footer();
