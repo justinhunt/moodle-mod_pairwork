@@ -29,8 +29,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$module->version   = 2015110700;               // If version == 0 then module will not be installed
+$plugin->version   = 2015110700;               // If version == 0 then module will not be installed
 //$module->version   = 2010032200;      // The current module version (Date: YYYYMMDDXX)
-$module->requires  = 2010031900;      // Requires this Moodle version
-$module->cron      = 0;               // Period for cron to check this module (secs)
-$module->component = 'mod_pairwork'; // To check on upgrade, that module sits in correct place
+$plugin->requires  = 2010031900;      // Requires this Moodle version
+$plugin->cron      = 0;               // Period for cron to check this module (secs)
+$plugin->component = 'mod_pairwork'; // To check on upgrade, that module sits in correct place
