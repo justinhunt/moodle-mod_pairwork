@@ -31,5 +31,9 @@ $observers = array(
     array(
         'eventname'   => '\core\event\course_deleted',
         'callback'    => '\mod_pairwork\event_observer::course_deleted',
+    ),
+    array(
+        'eventname'   => '\core\event\user_enrolment_deleted',
+        'callback'    => '\mod_pairwork\event_observer::enrolment_deleted',
     )
 );

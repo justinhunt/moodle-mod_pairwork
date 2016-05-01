@@ -1,4 +1,3 @@
-<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,35 +14,24 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * A mod_pairwork adhoc task
+ * JavaScript library for the pairwork module.
  *
- * @package    mod_pairwork
+ * @package    mod
+ * @subpackage pairwork
  * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_pairwork\task;
-defined('MOODLE_INTERNAL') || die();
-require_once($CFG->dirroot . '/mod/pairwork/lib.php');
-
-/**
- * A mod_pairwork adhoc task
- *
- * @package    mod_pairwork
- * @since      Moodle 2.7
- * @copyright  2015 Flash Gordon http://www.flashgordon.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-class pairwork_adhoc extends \core\task\adhoc_task {
-                                                                     
-   	 /**
-     *  Run the tasks
-     */
-	 public function execute(){
-		$trace = new \text_progress_trace();
-		$cd =  $this->get_custom_data();
-        	pairwork_do_adhoc_task($trace,$cd);
-	}
-		
-}
-
+define(['jquery','core/log'],function($,log){
+		  "use strict"; 
+		  log.debug('pairwork js module loaded');
+  return {
+  			init: function(){
+				$('.mod_pairwork_togglebutton').click(function() {
+					log.debug('toggling now');
+					$('.mod_pairwork_partnerpiccontainer').toggle(); 
+				});
+			}
+		};
+ } 
+);

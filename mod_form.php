@@ -74,6 +74,28 @@ class mod_pairwork_mod_form extends moodleform_mod {
         $mform->addRule('someinstancesetting', null, 'required', null, 'client');
         $mform->setType('someinstancesetting', PARAM_TEXT);
 		
+		//new fields for Week 5
+		
+		
+		//display show/hide button to students 
+		$mform->addElement('advcheckbox', 'showhide', get_string('showhide', MOD_PAIRWORK_LANG));
+        $mform->setDefault('showhide', 1);
+        
+        //instructions a
+        $instructionoptions = pairwork_get_editor_options($this->context);
+        $mform->addElement('editor', 'instructionsa_editor', get_string('instructionsa', MOD_PAIRWORK_LANG), 
+        		null, $instructionoptions);
+        $mform->setType('instructionsa_editor', PARAM_RAW);
+        $mform->addRule('instructionsa_editor', get_string('required'), 'required', null, 'client');
+        $mform->setDefault('instructionsa_editor', 
+        		array('text'=>get_string('defaultinstructions', MOD_PAIRWORK_LANG),'format'=>1));
+        
+        //instructions b
+        $mform->addElement('editor', 'instructionsb_editor', get_string('instructionsb', MOD_PAIRWORK_LANG), null, $instructionoptions);
+        $mform->setType('instructionsb_editor', PARAM_RAW);
+        $mform->addRule('instructionsb_editor', get_string('required'), 'required', null, 'client');
+        $mform->setDefault('instructionsb_editor', array('text'=>get_string('defaultinstructions', MOD_PAIRWORK_LANG),'format'=>1));
+	
 		//attempts
         $attemptoptions = array(0 => get_string('unlimited', MOD_PAIRWORK_LANG),
                             1 => '1',2 => '2',3 => '3',4 => '4',5 => '5',);
@@ -122,4 +144,19 @@ class mod_pairwork_mod_form extends moodleform_mod {
 	function completion_rule_enabled($data) {
 		return ($data['mingrade']>0);
 	}
+	
+	function data_preprocessing(&$default_values) {
+		if ($this->current->instance) {
+			$context = $this->context;
+			$editoroptions=pairwork_get_editor_options($context);
+			$default_values = (object)$default_values;	
+			$default_values = file_prepare_standard_editor($default_values,'instructionsa',
+				$editoroptions,$this->context,'mod_pairwork','instructionsa',$default_values->id);
+			$default_values = file_prepare_standard_editor($default_values,'instructionsb',
+				$editoroptions,$this->context,'mod_pairwork','instructionsb',$default_values->id);
+			$default_values = (array)$default_values;
+		}   	
+	}
+  
+    
 }

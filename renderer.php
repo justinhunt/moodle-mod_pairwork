@@ -107,8 +107,24 @@ class mod_pairwork_renderer extends plugin_renderer_base {
     	return html_writer::div($html,MOD_PAIRWORK_CLASS . '_buttoncontainer');
     }
 
+    /**
+     * Returns the buttons at the bottom of the view page
+     *
+     * @param object $instance
+     * @param object $displayopts
+     * @return string
+     */
+    public function fetch_view_userreport_button() {
+        $userreport_url =   new moodle_url('/mod/pairwork/userreport.php',
+            array('id'=>$this->page->cm->id));
+        $html = $this->output->single_button($userreport_url,
+            get_string('userreport',MOD_PAIRWORK_LANG));
+        return html_writer::div($html,MOD_PAIRWORK_CLASS . 'userreport_buttoncontainer');
+    }
 
-	  /**
+
+
+    /**
      * Returns the header for the activity page
      *
      * @param object $instance
@@ -129,7 +145,18 @@ class mod_pairwork_renderer extends plugin_renderer_base {
      */
     public function fetch_activity_instructions($moduleinstance,$displayopts) {
     	$html =  $this->output->box_start();
-        $instructions = get_string('defaultinstructions',MOD_PAIRWORK_LANG);
+        //$instructions = get_string('defaultinstructions',MOD_PAIRWORK_LANG);
+    	if($displayopts->partnertype=='a'){
+    		$instructions =$moduleinstance->instructionsa;
+    	}else{
+    		$instructions =$moduleinstance->instructionsb;
+    	}
+    	
+
+    	$contextid = $this->page->context->id;
+    	$instructions = file_rewrite_pluginfile_urls($instructions,'pluginfile.php', $contextid, 
+    			'mod_pairwork', 'instructions' . $displayopts->partnertype, $moduleinstance->id); 
+    	
     	$html .=  html_writer::div($instructions,MOD_PAIRWORK_CLASS . '_instructions');
     	$html .=  $this->output->box_end();
     	return $html;
@@ -143,6 +170,12 @@ class mod_pairwork_renderer extends plugin_renderer_base {
      */
     public function fetch_activity_resource($moduleinstance,$displayopts) {
     	global $CFG;
+    	
+    	//$this->page->requires->js_call_amd('mod_pairwork/togglebutton','init');
+    	//$this->page->requires->js_call_amd('mod_pairwork/ouch','init');
+    	$this->page->requires->js_init_call('M.mod_pairwork.togglebutton.init');
+    	$this->page->requires->js_init_call('M.mod_pairwork.ouch.init');
+    	
     	//establish rol
     	if($displayopts->partnertype=='a'){
     		$myrole = 'a';
@@ -156,15 +189,17 @@ class mod_pairwork_renderer extends plugin_renderer_base {
     		'my picture',array('class'=>MOD_PAIRWORK_CLASS . '_'  . 'resource'));
     	$mypicture = html_writer::div($mypicture, MOD_PAIRWORK_CLASS . '_resourcecontainer');
     	//get partnerpicture
-    	$partnerpicture = html_writer::img($CFG->wwwroot . '/mod/pairwork//resource/picture_' . $partnerrole . '.gif',
-    		'partner picture',array('class'=>MOD_PAIRWORK_CLASS . '_'  . 'resource'));
-    	$partnerpicture = html_writer::div($partnerpicture, MOD_PAIRWORK_CLASS . '_resourcecontainer');
+    	$partnerpicture = html_writer::img($CFG->wwwroot . '/mod/pairwork/resource/picture_' . $partnerrole . '.gif',
+    		'partner picture',array('class'=>MOD_PAIRWORK_CLASS . '_'  . 'resource mod_pairwork_partnerpic'));
+    		
+    	$partnerpicture = html_writer::div($partnerpicture, 
+    		MOD_PAIRWORK_CLASS . '_resourcecontainer ' . MOD_PAIRWORK_CLASS . '_partnerpiccontainer hide');
 		
 		//show mypicture , and maybe partner picture
 		$html = $mypicture;
-    	if($displayopts->seepartnerpic){
+    //	if($displayopts->seepartnerpic){
     		$html .= '<br/>' . $partnerpicture;
-    	}
+    //	}
     	return $html;
     }
 	 /**
@@ -175,15 +210,24 @@ class mod_pairwork_renderer extends plugin_renderer_base {
      * @return string
      */
     public function fetch_activity_buttons($moduleinstance,$displayopts) {
+    	
+    	//if showhide is false
+    	if(!$moduleinstance->showhide){return '';}
+    	
     	$partnerpic_visible = $displayopts->seepartnerpic;
     	$pageurl = $this->page->url;
     	$pageurl->params(array('seepartnerpic'=>!($partnerpic_visible),'partnertype'=>$displayopts->partnertype));
     	$actionlabel = get_string('see',MOD_PAIRWORK_LANG);
     	if($partnerpic_visible){$actionlabel = get_string('hide',MOD_PAIRWORK_LANG);}
+    	
     	$button = new single_button($pageurl,$actionlabel . get_string('partnerpic',MOD_PAIRWORK_LANG));
     	//$button->add_confirm_action('Do you really want to ' . $actionlabel .' your partners picture?');
     	$buttonhtml = $this->render($button);
-    	return html_writer::div($buttonhtml,MOD_PAIRWORK_CLASS . '_'  . 'buttons');
+    	
+    	$togglebutton = html_writer::tag('button',get_string('partnerpic',MOD_PAIRWORK_LANG),
+    		array('class'=>MOD_PAIRWORK_CLASS . '_togglebutton btn btn-primary'));
+    		
+    	return html_writer::div( $togglebutton,MOD_PAIRWORK_CLASS . '_'  . 'buttons');
     }
 
 
@@ -198,6 +242,27 @@ class mod_pairwork_renderer extends plugin_renderer_base {
         $html = $this->output->heading($moduleinstance->name, 2, 'main');
         $html .= $this->output->heading(get_string('userreport',MOD_PAIRWORK_LANG), 3, 'main');
         return $html;
+    }
+
+    public function fetch_userreport_buttons($moduleinstance,$displayopts)
+    {
+        $html = '';
+
+        //back button
+        $backurl = $this->page->url;
+        $hasback = $displayopts->currentpage > 1;
+        if ($hasback) {
+            $backurl->params(array('currentpage' => $displayopts->currentpage - 1, 'sort' => $displayopts->sort));
+            $html .= $this->output->single_button($backurl,get_string('back'));
+        }
+        //next button
+        $nexturl = $this->page->url;
+        $hasnext = $displayopts->usercount > ($displayopts->currentpage * $displayopts->perpage);
+        if ($hasnext) {
+            $nexturl->params(array('currentpage' => $displayopts->currentpage + 1, 'sort' => $displayopts->sort));
+            $html .= $this->output->single_button($nexturl,get_string('next'));
+        }
+        return html_writer::div($html,MOD_PAIRWORK_CLASS . '_userreport_buttoncontainer');
     }
 
 	public function fetch_user_list($moduleinstance, $userdata, $displayopts)
@@ -217,7 +282,14 @@ class mod_pairwork_renderer extends plugin_renderer_base {
 		$htr = new html_table_row();
 		$htr->attributes = $headrow_attributes;
 		foreach($fields as $field){
-			$htr->cells[]=new html_table_cell(get_string($field));
+            $cellurl = $this->page->url;
+            $usesort = $field . ' ASC';
+            if($displayopts->sort==$usesort){
+                $usesort = $field . ' DESC';
+            }
+            $cellurl->params(array('sort'=>$usesort));
+			$htr->cells[]=new html_table_cell(html_writer::link($cellurl,get_string($field)));
+			//$htr->cells[]=new html_table_cell(get_string($field));
 		}
 		$htmltable->data[]=$htr;
 

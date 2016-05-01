@@ -31,9 +31,9 @@ require_once(dirname(__FILE__).'/lib.php');
 
 $id = optional_param('id', 0, PARAM_INT); // course_module ID, or
 $n  = optional_param('n', 0, PARAM_INT);  // pairwork instance ID - it should be named as the first character of the module
-$sortorder = optional_param('sortorder', 'userid', PARAM_TEXT); // the sort order of the list
-$pagecount = optional_param('pagecount', 50, PARAM_INT); // the number of records to show
-
+$sort = optional_param('sort', 'id ASC', PARAM_TEXT); // the sort order of the list
+$currentpage = optional_param('currentpage', 1, PARAM_INT); // the current page no.
+$perpage = 10;
 
 
 if ($id) {
@@ -51,6 +51,8 @@ if ($id) {
 $PAGE->set_url('/mod/pairwork/userreport.php', array('id' => $cm->id));
 require_login($course, true, $cm);
 $modulecontext = context_module::instance($cm->id);
+
+require_capability('mod/pairwork:viewreportstab',$modulecontext);
 
 //Diverge logging logic at Moodle 2.7
 if($CFG->version<2014051200){
@@ -80,7 +82,16 @@ $PAGE->set_pagelayout('course');
 	//Get an instance setting
 	$someinstancesetting = $moduleinstance->someinstancesetting;
 
-$userdata = new stdClass();
+$coursecontext= context_course::instance($COURSE->id);
+$enroledusers = get_enrolled_users($coursecontext);
+$enrolarray  =array();
+foreach($enroledusers as $enroleduser){
+	$enrolarray[]=$enroleduser->id;
+
+}
+
+$usercount = $DB->count_records('user');
+$userdata = $DB->get_records('user',null,$sort,'*',$perpage * ($currentpage -1),$perpage);//new stdClass();
 
 //This puts all our display logic into the renderer.php
 $renderer = $PAGE->get_renderer('mod_pairwork');
@@ -89,15 +100,20 @@ $renderer = $PAGE->get_renderer('mod_pairwork');
 //if we are not a teacher we see no tabs and no report
 if(!has_capability('mod/pairwork:preview',$modulecontext)){
 	echo $renderer->notabsheader();
-	echo get_string('nopermission');
+	echo get_string('nopermissions','core_error',get_string('userreport',MOD_PAIRWORK_LANG));
 	echo $renderer->footer();
-
+	return;
 }
 
 $mode = 'userreport';
 echo $renderer->header($moduleinstance, $cm, $mode, null, get_string('userreport', MOD_PAIRWORK_LANG));
 $displayopts = new stdClass();
+$displayopts->sort=$sort;
+$displayopts->perpage=$perpage;
+$displayopts->currentpage=$currentpage;
+$displayopts->usercount=$usercount;
 echo $renderer->fetch_userreport_header($moduleinstance,$displayopts);
+echo $renderer->fetch_userreport_buttons($moduleinstance,$displayopts);
 echo $renderer->fetch_user_list($moduleinstance,$userdata, $displayopts);
 
 // Finish the page

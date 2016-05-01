@@ -75,6 +75,8 @@ require_login($course, true, $cm);
 
 $modulecontext = context_module::instance($cm->id);
 
+require_capability('mod/pairwork:viewreportstab',$modulecontext);
+
 //Diverge logging logic at Moodle 2.7
 if($CFG->version<2014051200){
 	add_to_log($course->id, MOD_PAIRWORK_MODNAME, 'reports', "reports.php?id={$cm->id}", $moduleinstance->name, $cm->id);

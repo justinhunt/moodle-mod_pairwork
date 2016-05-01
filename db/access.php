@@ -105,6 +105,39 @@ $capabilities = array(
 			'clonepermissionsfrom' => 'moodle/course:manageactivities'
 	),
 
+	'mod/pairwork:viewviewtab' => array(
+			'captype' => 'read',
+			'contextlevel' => CONTEXT_MODULE,
+			'archetypes' => array(
+					'teacher' => CAP_ALLOW,
+					'editingteacher' => CAP_ALLOW,
+					'manager' => CAP_ALLOW
+			),
+			'clonepermissionsfrom' => 'moodle/course:manageactivities'
+	),
+	
+	'mod/pairwork:viewreportstab' => array(
+			'captype' => 'read',
+			'contextlevel' => CONTEXT_MODULE,
+			'archetypes' => array(
+					'teacher' => CAP_ALLOW,
+					'editingteacher' => CAP_ALLOW,
+					'manager' => CAP_ALLOW
+			),
+			'clonepermissionsfrom' => 'moodle/course:manageactivities'
+	),
+
+	'mod/pairwork:viewuserreporttab' => array(
+			'captype' => 'read',
+			'contextlevel' => CONTEXT_MODULE,
+			'archetypes' => array(
+					'teacher' => CAP_ALLOW,
+					'editingteacher' => CAP_ALLOW,
+					'manager' => CAP_ALLOW
+			),
+			'clonepermissionsfrom' => 'moodle/course:manageactivities'
+	),
+
     'mod/pairwork:view' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_MODULE,

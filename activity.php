@@ -54,20 +54,13 @@ $PAGE->set_url('/mod/pairwork/activity.php', array('id' => $cm->id));
 require_login($course, true, $cm);
 $modulecontext = context_module::instance($cm->id);
 
-//Diverge logging logic at Moodle 2.7
-if($CFG->version<2014051200){
-	add_to_log($course->id, 'pairwork', 'view', "activity.php?id={$cm->id}", $moduleinstance->name, $cm->id);
-}else{
-	// Trigger module viewed event.
-	$event = \mod_pairwork\event\course_module_viewed::create(array(
-	   'objectid' => $moduleinstance->id,
-	   'context' => $modulecontext
-	));
-	$event->add_record_snapshot('course_modules', $cm);
-	$event->add_record_snapshot('course', $course);
-	$event->add_record_snapshot('pairwork', $moduleinstance);
-	$event->trigger();
-} 
+//Log the activity started event
+$event = \mod_pairwork\event\activity_started::create(array(
+   'objectid' => $moduleinstance->id,
+   'context' => $modulecontext
+));
+$event->trigger();
+
 
 //if we got this far, we can consider the activity "viewed"
 $completion = new completion_info($course);
@@ -102,6 +95,7 @@ $opts['someinstancesetting'] = $someinstancesetting;
 
 //this inits the M.mod_pairwork thingy, after the page has loaded.
 $PAGE->requires->js_init_call('M.mod_pairwork.helper.init', array($opts),false,$jsmodule);
+
 
 
 //This puts all our display logic into the renderer.php file in this plugin

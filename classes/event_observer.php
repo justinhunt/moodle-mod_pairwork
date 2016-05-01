@@ -50,4 +50,17 @@ class event_observer{
 		$ret = $DB->delete_records(MOD_PAIRWORK_USERTABLE,array('courseid'=>$event->objectid));
 		return $ret;
 	}
+	
+	public static function enrolment_deleted(\core\event\user_enrolment_deleted $event) {
+       global $DB;
+       
+       $pairworks = $DB->get_records('pairwork',array('course'=>$event->courseid));
+       foreach($pairworks as $pairwork){
+       		$user = $DB->get_record('user',array('id'=>$event->relateduserid));
+       		$pairwork->intro = $pairwork->intro . '<br/> Farewell to: ' . fullname($user); 
+       		$DB->update_record('pairwork',$pairwork);
+       }
+	   return true;
+	}
+	
 }

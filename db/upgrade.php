@@ -150,6 +150,31 @@ function xmldb_pairwork_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2007040200, 'pairwork');
     }
 
+
+    // Add fields for week 5
+    if ($oldversion < 2015110700) {
+
+        // Define field introformat to be added to pairwork
+        $table = new xmldb_table('pairwork');
+        $fields=array();
+        $fields[] = new xmldb_field('instructionsa', XMLDB_TYPE_TEXT, 'medium', null, null, null, null,null);
+        $fields[] = new xmldb_field('instructionsb', XMLDB_TYPE_TEXT, 'medium', null, null, null, null,null);
+        $fields[] = new xmldb_field('instructionsaformat', XMLDB_TYPE_INTEGER, '4', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0',
+            null);
+        $fields[] = new xmldb_field('instructionsbformat', XMLDB_TYPE_INTEGER, '4', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0',
+            null);
+        $fields[] = new xmldb_field('showhide', XMLDB_TYPE_INTEGER, '2', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0',
+            null);
+
+        // Add field timemodified
+        foreach ($fields as $field) {
+            if (!$dbman->field_exists($table, $field)) {
+                $dbman->add_field($table, $field);
+            }
+        }
+        upgrade_mod_savepoint(true, 2015110700, 'pairwork');
+    }
+
     // And that's all. Please, examine and understand the 3 example blocks above. Also
     // it's interesting to look how other modules are using this script. Remember that
     // the basic idea is to have "blocks" of code (each one being executed only once,

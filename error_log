@@ -149,3 +149,348 @@ Error code: codingerror
 [10-Oct-2015 16:29:28 Europe/London] PHP Warning:  strpos() expects parameter 1 to be string, array given in /home/chipmunkyou/public_html/moodle/cr/lib/weblib.php on line 344
 [10-Oct-2015 16:29:28 Europe/London] PHP Warning:  substr() expects parameter 1 to be string, array given in /home/chipmunkyou/public_html/moodle/cr/lib/weblib.php on line 346
 [10-Oct-2015 16:29:28 Europe/London] PHP Warning:  substr() expects parameter 1 to be string, array given in /home/chipmunkyou/public_html/moodle/cr/lib/weblib.php on line 349
+[20-Oct-2015 21:15:48 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Unknown method called against mod_pairwork_renderer :: fetch_userreport Debug: 
+Error code: codingerror
+* line 354 of /lib/outputrenderers.php: coding_exception thrown
+* line 101 of /mod/pairwork/userreport.php: call to plugin_renderer_base->__call()
+* line 101 of /mod/pairwork/userreport.php: call to mod_pairwork_renderer->fetch_userreport()
+
+[21-Oct-2015 03:43:46 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Invalid state passed to moodle_page::set_state. We are in state 3 and state 3 was requested. Debug: 
+Error code: codingerror
+* line 883 of /lib/pagelib.php: coding_exception thrown
+* line 1054 of /lib/outputrenderers.php: call to moodle_page->set_state()
+* line ? of unknownfile: call to core_renderer->footer()
+* line 352 of /lib/outputrenderers.php: call to call_user_func_array()
+* line 103 of /mod/pairwork/userreport.php: call to plugin_renderer_base->__call()
+* line 103 of /mod/pairwork/userreport.php: call to mod_pairwork_renderer->footer()
+
+[21-Oct-2015 03:44:53 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Invalid state passed to moodle_page::set_state. We are in state 3 and state 3 was requested. Debug: 
+Error code: codingerror
+* line 883 of /lib/pagelib.php: coding_exception thrown
+* line 1054 of /lib/outputrenderers.php: call to moodle_page->set_state()
+* line ? of unknownfile: call to core_renderer->footer()
+* line 352 of /lib/outputrenderers.php: call to call_user_func_array()
+* line 103 of /mod/pairwork/userreport.php: call to plugin_renderer_base->__call()
+* line 103 of /mod/pairwork/userreport.php: call to mod_pairwork_renderer->footer()
+
+[21-Oct-2015 03:45:23 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Invalid state passed to moodle_page::set_state. We are in state 3 and state 3 was requested. Debug: 
+Error code: codingerror
+* line 883 of /lib/pagelib.php: coding_exception thrown
+* line 1054 of /lib/outputrenderers.php: call to moodle_page->set_state()
+* line ? of unknownfile: call to core_renderer->footer()
+* line 352 of /lib/outputrenderers.php: call to call_user_func_array()
+* line 103 of /mod/pairwork/userreport.php: call to plugin_renderer_base->__call()
+* line 103 of /mod/pairwork/userreport.php: call to mod_pairwork_renderer->footer()
+
+[21-Oct-2015 03:58:03 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Invalid state passed to moodle_page::set_state. We are in state 3 and state 3 was requested. Debug: 
+Error code: codingerror
+* line 883 of /lib/pagelib.php: coding_exception thrown
+* line 1054 of /lib/outputrenderers.php: call to moodle_page->set_state()
+* line ? of unknownfile: call to core_renderer->footer()
+* line 352 of /lib/outputrenderers.php: call to call_user_func_array()
+* line 103 of /mod/pairwork/userreport.php: call to plugin_renderer_base->__call()
+* line 103 of /mod/pairwork/userreport.php: call to mod_pairwork_renderer->footer()
+
+[21-Oct-2015 03:59:56 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Invalid state passed to moodle_page::set_state. We are in state 3 and state 3 was requested. Debug: 
+Error code: codingerror
+* line 883 of /lib/pagelib.php: coding_exception thrown
+* line 1054 of /lib/outputrenderers.php: call to moodle_page->set_state()
+* line ? of unknownfile: call to core_renderer->footer()
+* line 352 of /lib/outputrenderers.php: call to call_user_func_array()
+* line 103 of /mod/pairwork/userreport.php: call to plugin_renderer_base->__call()
+* line 103 of /mod/pairwork/userreport.php: call to mod_pairwork_renderer->footer()
+
+[21-Oct-2015 04:01:47 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Invalid state passed to moodle_page::set_state. We are in state 3 and state 3 was requested. Debug: 
+Error code: codingerror
+* line 883 of /lib/pagelib.php: coding_exception thrown
+* line 1054 of /lib/outputrenderers.php: call to moodle_page->set_state()
+* line ? of unknownfile: call to core_renderer->footer()
+* line 352 of /lib/outputrenderers.php: call to call_user_func_array()
+* line 103 of /mod/pairwork/userreport.php: call to plugin_renderer_base->__call()
+* line 103 of /mod/pairwork/userreport.php: call to mod_pairwork_renderer->footer()
+
+[21-Oct-2015 07:03:28 Europe/London] PHP Notice:  Undefined property: stdClass::$sort in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 240
+[21-Oct-2015 07:03:28 Europe/London] PHP Notice:  Undefined property: stdClass::$sort in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 240
+[21-Oct-2015 07:03:28 Europe/London] PHP Notice:  Undefined property: stdClass::$sort in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 240
+[21-Oct-2015 07:03:28 Europe/London] PHP Notice:  Undefined property: stdClass::$sort in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 240
+[21-Oct-2015 09:17:11 Europe/London] Default exception handler: Error reading from database Debug: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IN ('13,9,4,6,11,14,5,8,18,10,3,16,7,12,17,20,2,15,21,19')  ORDER BY id ASC' at line 1
+SELECT * FROM mdl_user WHERE NOT IN (?)  ORDER BY id ASC
+[array (
+  0 => '13,9,4,6,11,14,5,8,18,10,3,16,7,12,17,20,2,15,21,19',
+)]
+Error code: dmlreadexception
+* line 443 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1080 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1307 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 91 of /mod/pairwork/userreport.php: call to moodle_database->get_records_select()
+
+[21-Oct-2015 09:28:18 Europe/London] PHP Notice:  Array to string conversion in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/userreport.php on line 94
+[21-Oct-2015 09:28:18 Europe/London] Default exception handler: Error reading from database Debug: Unknown column 'Array' in 'where clause'
+SELECT * FROM mdl_user WHERE NOT Array  ORDER BY id ASC
+[array (
+)]
+Error code: dmlreadexception
+* line 443 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1080 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1307 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 94 of /mod/pairwork/userreport.php: call to moodle_database->get_records_select()
+
+[21-Oct-2015 09:30:15 Europe/London] PHP Notice:  Array to string conversion in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/userreport.php on line 94
+[21-Oct-2015 09:30:15 Europe/London] Default exception handler: Error reading from database Debug: Unknown column 'Array' in 'where clause'
+SELECT * FROM mdl_user WHERE NOT Array  ORDER BY id ASC
+[array (
+)]
+Error code: dmlreadexception
+* line 443 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1080 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1307 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 94 of /mod/pairwork/userreport.php: call to moodle_database->get_records_select()
+
+[21-Oct-2015 09:30:21 Europe/London] PHP Notice:  Array to string conversion in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/userreport.php on line 94
+[21-Oct-2015 09:30:21 Europe/London] Default exception handler: Error reading from database Debug: Unknown column 'Array' in 'where clause'
+SELECT * FROM mdl_user WHERE NOT Array  ORDER BY id ASC
+[array (
+)]
+Error code: dmlreadexception
+* line 443 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1080 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1307 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 94 of /mod/pairwork/userreport.php: call to moodle_database->get_records_select()
+
+[21-Oct-2015 13:14:30 Europe/London] PHP Notice:  Undefined property: stdClass::$usercount in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 232
+[21-Oct-2015 13:17:50 Europe/London] PHP Notice:  Undefined property: stdClass::$username in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 272
+[21-Oct-2015 13:17:50 Europe/London] PHP Notice:  Undefined property: stdClass::$firstname in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 272
+[21-Oct-2015 13:17:50 Europe/London] PHP Notice:  Undefined property: stdClass::$lastname in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 272
+[21-Oct-2015 13:17:50 Europe/London] PHP Notice:  Undefined property: stdClass::$email in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 272
+[21-Oct-2015 13:19:37 Europe/London] Default exception handler: Error reading from database Debug: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM mdl_user   ORDER BY id ASC LIMIT 9, 10' at line 1
+SELECT  FROM mdl_user   ORDER BY id ASC LIMIT 9, 10
+[array (
+)]
+Error code: dmlreadexception
+* line 443 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1080 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1307 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 1258 of /lib/dml/moodle_database.php: call to moodle_database->get_records_select()
+* line 97 of /mod/pairwork/userreport.php: call to moodle_database->get_records()
+
+[21-Oct-2015 13:22:10 Europe/London] Default exception handler: Error reading from database Debug: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM mdl_user   ORDER BY id ASC LIMIT 0, 10' at line 1
+SELECT  FROM mdl_user   ORDER BY id ASC LIMIT 0, 10
+[array (
+)]
+Error code: dmlreadexception
+* line 443 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1080 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1307 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 1258 of /lib/dml/moodle_database.php: call to moodle_database->get_records_select()
+* line 97 of /mod/pairwork/userreport.php: call to moodle_database->get_records()
+
+[21-Oct-2015 13:24:37 Europe/London] Default exception handler: Error reading from database Debug: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM mdl_user   ORDER BY id ASC LIMIT 0, 10' at line 1
+SELECT  FROM mdl_user   ORDER BY id ASC LIMIT 0, 10
+[array (
+)]
+Error code: dmlreadexception
+* line 443 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1080 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1307 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 1258 of /lib/dml/moodle_database.php: call to moodle_database->get_records_select()
+* line 97 of /mod/pairwork/userreport.php: call to moodle_database->get_records()
+
+[21-Oct-2015 13:24:47 Europe/London] Default exception handler: Error reading from database Debug: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM mdl_user   ORDER BY id ASC LIMIT 0, 10' at line 1
+SELECT  FROM mdl_user   ORDER BY id ASC LIMIT 0, 10
+[array (
+)]
+Error code: dmlreadexception
+* line 443 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1080 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1307 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 1258 of /lib/dml/moodle_database.php: call to moodle_database->get_records_select()
+* line 97 of /mod/pairwork/userreport.php: call to moodle_database->get_records()
+
+[21-Oct-2015 13:24:59 Europe/London] Default exception handler: Error reading from database Debug: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM mdl_user   ORDER BY id ASC LIMIT 0, 10' at line 1
+SELECT  FROM mdl_user   ORDER BY id ASC LIMIT 0, 10
+[array (
+)]
+Error code: dmlreadexception
+* line 443 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1080 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1307 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 1258 of /lib/dml/moodle_database.php: call to moodle_database->get_records_select()
+* line 97 of /mod/pairwork/userreport.php: call to moodle_database->get_records()
+
+[21-Oct-2015 13:25:14 Europe/London] Default exception handler: Error reading from database Debug: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM mdl_user   ORDER BY id ASC LIMIT 0, 10' at line 1
+SELECT  FROM mdl_user   ORDER BY id ASC LIMIT 0, 10
+[array (
+)]
+Error code: dmlreadexception
+* line 443 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1080 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1307 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 1258 of /lib/dml/moodle_database.php: call to moodle_database->get_records_select()
+* line 97 of /mod/pairwork/userreport.php: call to moodle_database->get_records()
+
+[21-Oct-2015 13:26:21 Europe/London] Default exception handler: Error reading from database Debug: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM mdl_user   ORDER BY id ASC' at line 1
+SELECT  FROM mdl_user   ORDER BY id ASC
+[array (
+)]
+Error code: dmlreadexception
+* line 443 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1080 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1307 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 1258 of /lib/dml/moodle_database.php: call to moodle_database->get_records_select()
+* line 97 of /mod/pairwork/userreport.php: call to moodle_database->get_records()
+
+[31-Oct-2015 08:15:00 Europe/London] Default exception handler: A required parameter (id) was missing Debug: 
+Error code: missingparam
+* line 463 of /lib/setuplib.php: moodle_exception thrown
+* line 548 of /lib/moodlelib.php: call to print_error()
+* line 34 of /mod/pairwork/index.php: call to required_param()
+
+[31-Oct-2015 08:15:11 Europe/London] Default exception handler: A required parameter (id) was missing Debug: 
+Error code: missingparam
+* line 463 of /lib/setuplib.php: moodle_exception thrown
+* line 548 of /lib/moodlelib.php: call to print_error()
+* line 34 of /mod/pairwork/index.php: call to required_param()
+
+[31-Oct-2015 10:04:51 Europe/London] PHP Fatal error:  Class 'mod_pairwork_mod_form' not found in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/index.php on line 60
+[31-Oct-2015 10:05:57 Europe/London] PHP Warning:  Missing argument 1 for moodleform_mod::moodleform_mod(), called in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/index.php on line 61 and defined in /home/chipmunkyou/public_html/moodle/cr/course/moodleform_mod.php on line 61
+[31-Oct-2015 10:05:57 Europe/London] PHP Warning:  Missing argument 2 for moodleform_mod::moodleform_mod(), called in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/index.php on line 61 and defined in /home/chipmunkyou/public_html/moodle/cr/course/moodleform_mod.php on line 61
+[31-Oct-2015 10:05:57 Europe/London] PHP Warning:  Missing argument 3 for moodleform_mod::moodleform_mod(), called in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/index.php on line 61 and defined in /home/chipmunkyou/public_html/moodle/cr/course/moodleform_mod.php on line 61
+[31-Oct-2015 10:05:57 Europe/London] PHP Warning:  Missing argument 4 for moodleform_mod::moodleform_mod(), called in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/index.php on line 61 and defined in /home/chipmunkyou/public_html/moodle/cr/course/moodleform_mod.php on line 61
+[31-Oct-2015 10:05:57 Europe/London] PHP Notice:  Undefined variable: current in /home/chipmunkyou/public_html/moodle/cr/course/moodleform_mod.php on line 64
+[31-Oct-2015 10:05:57 Europe/London] PHP Notice:  Undefined variable: current in /home/chipmunkyou/public_html/moodle/cr/course/moodleform_mod.php on line 65
+[31-Oct-2015 10:05:57 Europe/London] PHP Notice:  Trying to get property of non-object in /home/chipmunkyou/public_html/moodle/cr/course/moodleform_mod.php on line 65
+[31-Oct-2015 10:05:57 Europe/London] PHP Notice:  Undefined variable: section in /home/chipmunkyou/public_html/moodle/cr/course/moodleform_mod.php on line 66
+[31-Oct-2015 10:05:57 Europe/London] PHP Notice:  Undefined variable: cm in /home/chipmunkyou/public_html/moodle/cr/course/moodleform_mod.php on line 67
+[31-Oct-2015 10:05:57 Europe/London] PHP Notice:  Undefined variable: course in /home/chipmunkyou/public_html/moodle/cr/course/moodleform_mod.php on line 71
+[31-Oct-2015 10:05:57 Europe/London] PHP Notice:  Trying to get property of non-object in /home/chipmunkyou/public_html/moodle/cr/course/moodleform_mod.php on line 71
+[31-Oct-2015 10:05:57 Europe/London] Default exception handler: Can not find data record in database table course. Debug: SELECT id,category FROM {course} WHERE id IS NULL
+[array (
+)]
+Error code: invalidrecord
+* line 1453 of /lib/dml/moodle_database.php: dml_missing_record_exception thrown
+* line 1429 of /lib/dml/moodle_database.php: call to moodle_database->get_record_select()
+* line 6884 of /lib/accesslib.php: call to moodle_database->get_record()
+* line 71 of /course/moodleform_mod.php: call to context_course::instance()
+* line 61 of /mod/pairwork/index.php: call to moodleform_mod->moodleform_mod()
+
+[31-Oct-2015 11:37:48 Europe/London] PHP Notice:  Undefined property: stdClass::$instructionsb in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 152
+[31-Oct-2015 13:37:10 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 78
+[31-Oct-2015 14:07:30 Europe/London] Default exception handler: A required parameter (courseid) was missing Debug: 
+Error code: missingparam
+* line 463 of /lib/setuplib.php: moodle_exception thrown
+* line 548 of /lib/moodlelib.php: call to print_error()
+* line 33 of /mod/pairwork/namechanger.php: call to required_param()
+
+[31-Oct-2015 14:07:43 Europe/London] PHP Notice:  Undefined variable: id in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 43
+[31-Oct-2015 14:07:43 Europe/London] PHP Fatal error:  Call to undefined method moodle_page::set_layout() in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 47
+[31-Oct-2015 14:08:32 Europe/London] PHP Notice:  Undefined variable: id in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 43
+[31-Oct-2015 14:08:32 Europe/London] PHP Fatal error:  Call to undefined method moodle_page::set_layout() in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 47
+[31-Oct-2015 14:08:37 Europe/London] PHP Notice:  Undefined variable: id in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 43
+[31-Oct-2015 14:08:37 Europe/London] PHP Fatal error:  Call to undefined method moodle_page::set_layout() in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 47
+[31-Oct-2015 14:08:58 Europe/London] PHP Fatal error:  Call to undefined method moodle_page::set_layout() in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 47
+[31-Oct-2015 14:09:57 Europe/London] PHP Fatal error:  Class 'pairwork_namechanger_form' not found in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 67
+[31-Oct-2015 14:12:29 Europe/London] PHP Fatal error:  Class 'moodleform' not found in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 37
+[31-Oct-2015 14:14:02 Europe/London] PHP Fatal error:  Call to undefined function get_record() in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 118
+[31-Oct-2015 14:15:05 Europe/London] PHP Notice:  Undefined variable: actionid in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 118
+[31-Oct-2015 14:15:27 Europe/London] PHP Notice:  Undefined variable: actionid in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 118
+[31-Oct-2015 14:16:41 Europe/London] Default exception handler: A required parameter (courseid) was missing Debug: 
+Error code: missingparam
+* line 463 of /lib/setuplib.php: moodle_exception thrown
+* line 548 of /lib/moodlelib.php: call to print_error()
+* line 67 of /mod/pairwork/namechanger.php: call to required_param()
+
+[31-Oct-2015 14:18:17 Europe/London] Default exception handler: A required parameter (courseid) was missing Debug: 
+Error code: missingparam
+* line 463 of /lib/setuplib.php: moodle_exception thrown
+* line 548 of /lib/moodlelib.php: call to print_error()
+* line 69 of /mod/pairwork/namechanger.php: call to required_param()
+
+[31-Oct-2015 14:28:25 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Cache definition core/string requires simple keys. Invalid key provided. Debug: en_mod_sausages forgiven_1446270609
+Error code: codingerror
+* line 573 of /cache/classes/helper.php: coding_exception thrown
+* line 852 of /cache/classes/loaders.php: call to cache_helper::hash_key()
+* line 282 of /cache/classes/loaders.php: call to cache->parse_key()
+* line 1454 of /cache/classes/loaders.php: call to cache->get()
+* line 120 of /lib/classes/string_manager_standard.php: call to cache_application->get()
+* line 323 of /lib/classes/string_manager_standard.php: call to core_string_manager_standard->load_component_strings()
+* line 6656 of /lib/moodlelib.php: call to core_string_manager_standard->get_string()
+* line 101 of /mod/pairwork/namechanger.php: call to get_string()
+
+[31-Oct-2015 14:29:13 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Cache definition core/string requires simple keys. Invalid key provided. Debug: en_mod_sausages forgiven_1446270609
+Error code: codingerror
+* line 573 of /cache/classes/helper.php: coding_exception thrown
+* line 852 of /cache/classes/loaders.php: call to cache_helper::hash_key()
+* line 282 of /cache/classes/loaders.php: call to cache->parse_key()
+* line 1454 of /cache/classes/loaders.php: call to cache->get()
+* line 120 of /lib/classes/string_manager_standard.php: call to cache_application->get()
+* line 323 of /lib/classes/string_manager_standard.php: call to core_string_manager_standard->load_component_strings()
+* line 6656 of /lib/moodlelib.php: call to core_string_manager_standard->get_string()
+* line 101 of /mod/pairwork/namechanger.php: call to get_string()
+
+[31-Oct-2015 14:29:34 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Cache definition core/string requires simple keys. Invalid key provided. Debug: en_mod_sausages forgiven_1446270609
+Error code: codingerror
+* line 573 of /cache/classes/helper.php: coding_exception thrown
+* line 852 of /cache/classes/loaders.php: call to cache_helper::hash_key()
+* line 282 of /cache/classes/loaders.php: call to cache->parse_key()
+* line 1454 of /cache/classes/loaders.php: call to cache->get()
+* line 120 of /lib/classes/string_manager_standard.php: call to cache_application->get()
+* line 323 of /lib/classes/string_manager_standard.php: call to core_string_manager_standard->load_component_strings()
+* line 6656 of /lib/moodlelib.php: call to core_string_manager_standard->get_string()
+* line 101 of /mod/pairwork/namechanger.php: call to get_string()
+
+[06-Nov-2015 01:46:28 Europe/London] PHP Fatal error:  Call to undefined method moodle_page::js_call_amd() in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 168
+[06-Nov-2015 06:11:01 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Cannot require a CSS file after &lt;head&gt; has been printed. Debug: http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.1/jquery.qtip.min.css
+Error code: codingerror
+* line 890 of /lib/outputrequirementslib.php: coding_exception thrown
+* line 169 of /mod/pairwork/renderer.php: call to page_requirements_manager->css()
+* line 127 of /mod/pairwork/activity.php: call to mod_pairwork_renderer->fetch_activity_resource()
+
+[06-Nov-2015 06:11:45 Europe/London] PHP Fatal error:  Using $this when not in object context in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/activity.php on line 106
+[06-Nov-2015 06:12:06 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Invalid stylesheet parameter. Debug: http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.1/jquery.qtip.min.css
+Error code: codingerror
+* line 898 of /lib/outputrequirementslib.php: coding_exception thrown
+* line 106 of /mod/pairwork/activity.php: call to page_requirements_manager->css()
+
+[06-Nov-2015 06:38:16 Europe/London] Default exception handler: Coding error detected, it must be fixed by a programmer: Invalid stylesheet parameter. Debug: http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.1/jquery.qtip.min.css
+Error code: codingerror
+* line 898 of /lib/outputrequirementslib.php: coding_exception thrown
+* line 106 of /mod/pairwork/activity.php: call to page_requirements_manager->css()
+
+[06-Nov-2015 07:56:55 Europe/London] PHP Parse error:  syntax error, unexpected ';' in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 215
+[07-Nov-2015 08:12:47 Europe/London] PHP Notice:  Undefined property: stdClass::$instructionsa in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 150
+[07-Nov-2015 08:13:54 Europe/London] PHP Notice:  Undefined property: stdClass::$instructionsa in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 150
+[07-Nov-2015 14:17:18 Europe/London] PHP Notice:  Undefined property: stdClass::$instructionsb in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 152
+[07-Nov-2015 14:17:18 Europe/London] PHP Notice:  Undefined variable: linkhtml in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 216
+[07-Nov-2015 17:10:08 Europe/London] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 172
+[12-Nov-2015 08:11:01 Europe/London] PHP Notice:  Undefined variable: cm in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 155
+[12-Nov-2015 08:11:01 Europe/London] PHP Notice:  Trying to get property of non-object in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/renderer.php on line 155
+[12-Nov-2015 08:11:01 Europe/London] Default exception handler: Invalid course module ID Debug: SELECT id,course FROM {course_modules} WHERE id IS NULL
+[array (
+)]
+Error code: invalidcoursemodule
+* line 1453 of /lib/dml/moodle_database.php: dml_missing_record_exception thrown
+* line 1429 of /lib/dml/moodle_database.php: call to moodle_database->get_record_select()
+* line 7145 of /lib/accesslib.php: call to moodle_database->get_record()
+* line 155 of /mod/pairwork/renderer.php: call to context_module::instance()
+* line 127 of /mod/pairwork/activity.php: call to mod_pairwork_renderer->fetch_activity_instructions()
+
+[13-Nov-2015 04:11:22 Europe/London] PHP Parse error:  syntax error, unexpected '{' in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/tabs.php on line 50
+[20-Nov-2015 05:58:28 Europe/London] PHP Fatal error:  Class 'mod_pairwork\task\pairwork_task' not found in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 98
+[20-Nov-2015 05:59:14 Europe/London] PHP Fatal error:  Class 'mod_pairwork\task\pairwork_task' not found in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/namechanger.php on line 98
+[20-Nov-2015 08:00:31 Europe/London] PHP Parse error:  syntax error, unexpected '{' in /home/chipmunkyou/public_html/moodle/cr/mod/pairwork/lib.php on line 389
+[21-Nov-2015 14:35:06 Europe/London] Default exception handler: Can not find data record in database. Debug: SELECT cm.*, m.name, md.name AS modname 
+              FROM {course_modules} cm
+                   JOIN {modules} md ON md.id = cm.module
+                   JOIN {pairwork} m ON m.id = cm.instance
+                   
+             WHERE cm.id = :cmid AND md.name = :modulename
+                   
+[array (
+  'cmid' => 281,
+  'modulename' => 'pairwork',
+)]
+Error code: invalidrecordunknown
+* line 1481 of /lib/dml/moodle_database.php: dml_missing_record_exception thrown
+* line 1328 of /lib/datalib.php: call to moodle_database->get_record_sql()
+* line 40 of /mod/pairwork/userreport.php: call to get_coursemodule_from_id()
+

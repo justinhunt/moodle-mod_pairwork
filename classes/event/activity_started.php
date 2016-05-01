@@ -15,35 +15,41 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * A mod_pairwork adhoc task
+ * The mod_page activity started event.
  *
  * @package    mod_pairwork
  * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_pairwork\task;
+namespace mod_pairwork\event;
 defined('MOODLE_INTERNAL') || die();
-require_once($CFG->dirroot . '/mod/pairwork/lib.php');
 
 /**
- * A mod_pairwork adhoc task
+ * The mod_pairwork activity started event class.
  *
  * @package    mod_pairwork
  * @since      Moodle 2.7
  * @copyright  2015 Flash Gordon http://www.flashgordon.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class pairwork_adhoc extends \core\task\adhoc_task {
-                                                                     
-   	 /**
-     *  Run the tasks
-     */
-	 public function execute(){
-		$trace = new \text_progress_trace();
-		$cd =  $this->get_custom_data();
-        	pairwork_do_adhoc_task($trace,$cd);
-	}
-		
-}
+class activity_started extends \core\event\base {
 
+    /**
+     * Init method.
+     */
+    protected function init() {
+        $this->data['crud'] = 'r';
+        $this->data['edulevel'] = self::LEVEL_PARTICIPATING;
+        $this->data['objecttable'] = 'pairwork';
+    }
+
+ 
+    public static function get_name() {
+        return get_string('activitystartedevent', 'mod_pairwork');
+    }
+ 
+    public function get_description() {
+        return "The user with id {$this->userid} started activity with id {$this->objectid}.";
+    }
+}

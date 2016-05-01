@@ -116,7 +116,7 @@ $renderer = $PAGE->get_renderer('mod_pairwork');
 
 
 //if we are teacher we see tabs. If student we just see the quiz
-if(has_capability('mod/pairwork:preview',$modulecontext)){
+if(has_capability('mod/pairwork:viewviewtab',$modulecontext)){
 	echo $renderer->header($moduleinstance, $cm, $mode, null, get_string('view', MOD_PAIRWORK_LANG));
 }else{
 	echo $renderer->notabsheader();
@@ -135,6 +135,10 @@ if($moduleinstance->maxattempts > 0){
 //This is specfic to our renderer
 echo $renderer->fetch_view_instructions();
 echo $renderer->fetch_view_buttons();
+
+if(has_capability('mod/pairwork:preview',$modulecontext)){
+	echo $renderer->fetch_view_userreport_button();
+}
 
 // Finish the page
 echo $renderer->footer();

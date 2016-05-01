@@ -24,9 +24,36 @@
 
 M.mod_pairwork = M.mod_pairwork || {};
 
+M.mod_pairwork.ouch = {
+	gY: null,
+	init: function(Y,opts) {
+		console.log('initing ouch');
+    	this.gY = Y;
+    	this.gY.one('.mod_pairwork_resource').on('click',function(){
+    		console.log('ouching');
+    		window.alert("Don't touch this cat!!");
+    		}
+    	);    	 
+    }
+}
+
+M.mod_pairwork.togglebutton = {
+	gY: null,
+	init: function(Y,opts) {
+		console.log('initing toggling button');
+    	this.gY = Y;
+    	this.gY.one('.mod_pairwork_togglebutton').on('click',function(){
+    		console.log('toggling');
+    		var ppic = M.mod_pairwork.togglebutton.gY.one('.mod_pairwork_partnerpiccontainer');
+    		ppic.toggleView();
+    		ppic.removeClass('hide');
+    		}
+    	);    	 
+    }
+}
+
 M.mod_pairwork.helper = {
 	gY: null,
-
 
 	 /**
      * @param Y the YUI object
